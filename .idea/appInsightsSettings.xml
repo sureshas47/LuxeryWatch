@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.project1" />
+                  <option name="mobileSdkAppId" value="1:961480815572:android:bb25d1f3262e86cee45c41" />
+                  <option name="projectId" value="luxury-watch-df9da" />
+                  <option name="projectNumber" value="961480815572" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
