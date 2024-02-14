@@ -6,13 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:srcCompat="@drawable/watch"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="48dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to the world of Luxury"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="481dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="308dp"
+        android:layout_height="50dp"
+        android:text="Get Started"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="622dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

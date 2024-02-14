@@ -13,6 +13,13 @@
         android:theme="@style/Theme.Project1"
         tools:targetApi="31">
         <activity
+            android:name=".ConfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login" />
+        <activity
             android:name=".RegistrationActivity"
             android:exported="false" />
         <activity
@@ -23,13 +30,13 @@
             android:exported="false" />
         <activity
             android:name=".CartActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".DescriptionActivity"
             android:exported="false" />
         <activity
             android:name=".ProductActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

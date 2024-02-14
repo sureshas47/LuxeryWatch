@@ -6,4 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".CartActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rView"
+        android:layout_width="0dp"
+        android:layout_height="459dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginBottom="120dp"
+        android:text="Total"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="31dp"
+        android:text="$8000"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnCheckOut"
+        app:layout_constraintEnd_toEndOf="@+id/btnCheckOut" />
+
+    <Button
+        android:id="@+id/btnCheckOut"
+        android:layout_width="314dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginBottom="51dp"
+        android:text="Check out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
