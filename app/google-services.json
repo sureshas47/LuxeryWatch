@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "961480815572",
+    "firebase_url": "https://luxury-watch-df9da-default-rtdb.firebaseio.com",
+    "project_id": "luxury-watch-df9da",
+    "storage_bucket": "luxury-watch-df9da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961480815572:android:bb25d1f3262e86cee45c41",
+        "android_client_info": {
+          "package_name": "com.example.project1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3IDyZ6D-wqg22GhFly8_henYEsRdIH64"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

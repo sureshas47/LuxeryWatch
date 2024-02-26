@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/themeBackground"
+    android:orientation="vertical"
+    android:paddingHorizontal="30dp"
+    android:weightSum="1"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.7"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Unlock a World of Timeless Luxury."
+        android:textSize="35dp"
+        android:textColor="@color/text"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log in Now"
+        android:textStyle="bold"
+        android:textSize="35dp"
+        android:textColor="@color/text"
+        />
+
+
+    <EditText
+        android:id="@+id/emailTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:shadowRadius="10"
+        android:inputType="textEmailAddress"
+        android:background="@color/text"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="15dp"
+        android:layout_marginTop="30dp"
+        />
+
+    <EditText
+        android:id="@+id/passwordTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:shadowRadius="10"
+        android:inputType="textPassword"
+        android:background="@color/text"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="15dp"
+        android:layout_marginTop="30dp"
+        />
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Login"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/text"
+        android:paddingVertical="8dp"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginVertical="30dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+       android:layout_gravity="center"
+        android:background="#676767" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginVertical="10dp"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/circle"
+            android:layout_marginHorizontal="10dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/circle"
+            android:layout_marginHorizontal="10dp"
+            />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+
+    <Button
+        android:id="@+id/signupBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Sign Up"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/text"
+        android:paddingVertical="8dp"
+        android:layout_marginHorizontal="60dp"
+
+        />
+
+    <Button
+        android:id="@+id/SkipBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Skip for now"
+        android:textSize="15dp"
+        android:textColor="@color/text"
+
+        android:paddingVertical="8dp"
+        android:layout_marginHorizontal="60dp"
+
+        />
+    </LinearLayout>
+
+
+</LinearLayout>
