@@ -2,7 +2,9 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Project1" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/themeBackground</item>
+        <item name="colorPrimaryDark">@color/themeBackground</item>
+        <item name="fontFamily">@font/besley_variablefont_wght</item>
     </style>
 
     <style name="Theme.Project1" parent="Base.Theme.Project1" />

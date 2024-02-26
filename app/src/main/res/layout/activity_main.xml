@@ -1,35 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/themeBackground"
+    android:weightSum="1"
     tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Imperials"
+        android:textSize="25dp"
+        android:textColor="@color/text"
+        android:textAlignment="center"
+        android:paddingVertical="10dp"
+        />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_weight="0.5"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/watch"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="48dp" />
+        app:srcCompat="@drawable/hero_img"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+
+        android:layout_weight="0.2">
+
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome to the world of Luxury"
+        android:text="Elegance in Every Tick"
+        android:textColor="@color/text"
+        android:textStyle="bold"
         android:textAlignment="center"
-        android:textSize="30dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="481dp" />
+        android:textSize="25dp"
+         />
+    <TextView
+        android:id="@+id/subtextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Where each moment is meticulously crafted, and every tick resonates with the symphony of elegance, making time a luxurious experience"
+        android:textAlignment="center"
+        android:textColor="#C3FFFFFF"
+        android:paddingHorizontal="20dp"
+        android:textSize="15dp"
+        />
+    </LinearLayout>
 
     <Button
         android:id="@+id/button"
-        android:layout_width="308dp"
-        android:layout_height="50dp"
-        android:text="Get Started"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="622dp" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:textColor="@color/black"
+        android:backgroundTint="#FFFFFF"
+        android:text="Explore Time in Luxury"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
