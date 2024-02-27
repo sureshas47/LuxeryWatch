@@ -1,5 +1,7 @@
 package com.example.project1
 
+import java.io.Serializable
+
 data class Product(
     val name: String = "",
     val braceletMaterial: String = "",
@@ -9,5 +11,6 @@ data class Product(
     val dialColor: String = "",
     val powerReserver: String = "",
     val price: Double = 0.0,
-    val waterResistance: String = ""
-)
+    val waterResistance: String = "",
+    val description: String = ""
+) : Serializable

@@ -17,7 +17,10 @@ class ProductActivity : AppCompatActivity() {
 
         val query = FirebaseDatabase.getInstance().reference.child("productList/rolex")
         val options = FirebaseRecyclerOptions.Builder<Product>().setQuery(query, Product::class.java).build()
-        adapter = ProductAdapter(options)
+
+        // Pass reference to ProductAdapter
+        adapter = ProductAdapter(options, this)
+
 
         val rView: RecyclerView = findViewById(R.id.recyclerView)
         rView.layoutManager = GridLayoutManager(this,2)

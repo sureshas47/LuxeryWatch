@@ -1,5 +1,7 @@
 package com.example.project1
 
+import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,7 +14,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
-class ProductAdapter(options: FirebaseRecyclerOptions<Product>) :
+class ProductAdapter(options: FirebaseRecyclerOptions<Product>, private val context: Context) :
     FirebaseRecyclerAdapter<Product, ProductAdapter.MyViewHolder>(options) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -27,6 +29,14 @@ class ProductAdapter(options: FirebaseRecyclerOptions<Product>) :
         holder.modelNameTextView.text = model.name
         holder.seriesTextView.text = model.braceletMaterial
 //        holder.productPriceTextView.text = "${model.price} $"
+
+        // OnClickListener for the entire item
+        holder.itemView.setOnClickListener() {
+            // Intent to navigate to DescriptionActivity
+            val intent = Intent(holder.itemView.context, DescriptionActivity::class.java)
+            intent.putExtra("product", model)
+            context.startActivity(intent)
+        }
     }
 
     inner class MyViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
