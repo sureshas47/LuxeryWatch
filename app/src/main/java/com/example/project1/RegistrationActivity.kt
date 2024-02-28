@@ -54,6 +54,11 @@ class RegistrationActivity : AppCompatActivity() {
             return
         }
 
+        if (password.length <= 6){
+            showToast("Password must be at least 6 characters long")
+            return
+        }
+
         if (password != confirmPassword) {
             showToast("Password and confirm password do not match")
             return
