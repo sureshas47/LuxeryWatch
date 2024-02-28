@@ -8,6 +8,7 @@
     android:orientation="vertical"
     android:weightSum="1"
     tools:context=".DescriptionActivity">
+    <include layout="@layout/toolbar"/>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
@@ -175,7 +176,8 @@
                 android:id="@+id/priceTv"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.3"
+                android:layout_weight="0.4"
+                android:paddingHorizontal="5dp"
                 android:text="$7000"
                 android:textColor="@color/text"
                 android:textSize="25dp" />
@@ -184,7 +186,7 @@
                 android:id="@+id/addToCart"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
+                android:layout_weight="0.6"
                 android:backgroundTint="@color/text"
                 android:text="Add to Cart"
                 android:textColor="@color/black" />

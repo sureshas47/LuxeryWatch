@@ -1,4 +1,4 @@
-package com.example.project1
+package com.example.project1.dataClasses
 
 import java.io.Serializable
 

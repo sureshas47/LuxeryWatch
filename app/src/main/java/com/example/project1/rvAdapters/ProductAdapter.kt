@@ -1,6 +1,5 @@
-package com.example.project1
+package com.example.project1.rvAdapters
 
-import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,12 +8,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.project1.DescriptionActivity
+import com.example.project1.ProductActivity
+import com.example.project1.dataClasses.Product
+import com.example.project1.R
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
-class ProductAdapter(options: FirebaseRecyclerOptions<Product>, private val context: Context) :
+class ProductAdapter(options: FirebaseRecyclerOptions<Product>, private val context: ProductActivity) :
     FirebaseRecyclerAdapter<Product, ProductAdapter.MyViewHolder>(options) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

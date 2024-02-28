@@ -1,4 +1,4 @@
-package com.example.project1
+package com.example.project1.util
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
