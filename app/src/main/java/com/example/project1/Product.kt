@@ -7,7 +7,7 @@ data class Product(
     val braceletMaterial: String = "",
     val cardImg: String = "",
     val caseSize: String = "",
-    val detailImg: String = "",
+    val detailImg: List<String> = emptyList(),
     val dialColor: String = "",
     val powerReserver: String = "",
     val price: Double = 0.0,

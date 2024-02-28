@@ -6,11 +6,10 @@ data class Cart(
     var braceletMaterial: String = "",
     var cardImg: String = "",
     var caseSize: String = "",
-    var detailImg: String = "",
     var dialColor: String = "",
     var powerReserver: String = "",
     var waterResistance: String = ""
 ) {
     // No-argument constructor required by Firebase
-    constructor() : this("", 0.0, "", "", "", "", "", "", "")
+    constructor() : this("", 0.0, "", "", "", "", "", "")
 }

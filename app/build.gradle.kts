@@ -57,6 +57,9 @@ dependencies {
     implementation("com.google.firebase:firebase-auth:22.3.1")
     implementation ("com.firebaseui:firebase-ui-auth:7.2.0")
 
+    implementation ("androidx.viewpager:viewpager:1.0.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+
     kapt ("com.github.bumptech.glide:compiler:4.11.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     testImplementation("junit:junit:4.13.2")
