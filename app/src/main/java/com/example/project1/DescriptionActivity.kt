@@ -2,18 +2,19 @@ package com.example.project1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
-import com.bumptech.glide.Glide
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 
 class DescriptionActivity : AppCompatActivity() {
+
+    private lateinit var viewPager: ViewPager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_description)
@@ -23,10 +24,13 @@ class DescriptionActivity : AppCompatActivity() {
 
         // For View Pager Slider
         val imageUrls = product.detailImg
-        val viewPager: ViewPager = findViewById(R.id.viewPager)
+        viewPager = findViewById(R.id.viewPager)
+        val dotsLayout = findViewById<LinearLayout>(R.id.dotsLayout)
+
         if (imageUrls.isNotEmpty()) {
             val adapter = ImageSliderAdapter(supportFragmentManager, imageUrls)
             viewPager.adapter = adapter
+            addDotsIndicator(dotsLayout, imageUrls.size)
         }
 
         // Update with retrieved watch details
@@ -36,7 +40,6 @@ class DescriptionActivity : AppCompatActivity() {
         val waterResistanceTextView: TextView = findViewById(R.id.waterResistanceTv)
         val priceTextView: TextView = findViewById(R.id.priceTv)
         val watchDescriptionTextView: TextView = findViewById(R.id.watchDescription)
-//        val productImageView : ImageView = findViewById(R.id.productImageView)
 
         watchNameTextView.text = product.name
         caseSizeTextView.text = product.caseSize
@@ -44,9 +47,6 @@ class DescriptionActivity : AppCompatActivity() {
         waterResistanceTextView.text = product.waterResistance
         priceTextView.text = "$" + product.price.toString()
         watchDescriptionTextView.text = product.description
-
-//        val storRef: StorageReference = FirebaseStorage.getInstance().getReferenceFromUrl(product.detailImg)
-//        Glide.with(this).load(storRef).into(productImageView)
 
         val addToCartButton: Button = findViewById(R.id.addToCart)
 
@@ -80,5 +80,43 @@ class DescriptionActivity : AppCompatActivity() {
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun addDotsIndicator(dotsLayout: LinearLayout, size: Int) {
+        val dots = arrayOfNulls<ImageView>(size)
+
+        for (i in 0 until size) {
+            dots[i] = ImageView(this)
+            dots[i]?.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.non_active_dot))
+
+            val params = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            params.setMargins(8, 0, 8, 0)
+            dotsLayout.addView(dots[i], params)
+        }
+
+        dots[0]?.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.active_dot))
+
+        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+
+            }
+
+            override fun onPageSelected(position: Int) {
+                for (i in dots.indices) {
+                    dots[i]?.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            applicationContext,
+                            if (i == position) R.drawable.active_dot else R.drawable.non_active_dot
+                        )
+                    )
+                }
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+        })
     }
 }
