@@ -54,6 +54,8 @@ dependencies {
     implementation("androidx.annotation:annotation:1.6.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+    implementation("com.google.firebase:firebase-auth:22.3.1")
+    implementation ("com.firebaseui:firebase-ui-auth:7.2.0")
 
     kapt ("com.github.bumptech.glide:compiler:4.11.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
