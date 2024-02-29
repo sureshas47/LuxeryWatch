@@ -5,13 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/themeBackground"
+
     tools:context=".CheckOutActivity">
 
     <include layout="@layout/toolbar"/>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,7 +25,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:backgroundTint="#63000000"
                 app:cardCornerRadius="10dp">
 
                 <LinearLayout
@@ -36,6 +39,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="5sp"
+                        android:textColor="@color/text"
                         android:text="Order Summary"
                         android:textStyle="bold" />
 
@@ -48,6 +52,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
+                            android:textColor="@color/text"
                             android:text="Subtotal" />
 
                         <TextView
@@ -55,7 +60,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
+                            android:textColor="@color/text"
                             android:text="0.00"
+
                             android:textStyle="bold" />
                     </RelativeLayout>
 
@@ -68,6 +75,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
+                            android:textColor="@color/text"
                             android:text="Delivery Fee" />
 
                         <TextView
@@ -76,6 +84,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:text="0.00"
+                            android:textColor="@color/text"
                             android:textStyle="bold" />
                     </RelativeLayout>
 
@@ -88,6 +97,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
+                            android:textColor="@color/text"
                             android:text="Total" />
 
                         <TextView
@@ -95,6 +105,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
+                            android:textColor="@color/text"
                             android:text="0.00"
                             android:textStyle="bold" />
                     </RelativeLayout>
@@ -113,14 +124,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Shipping Details"
+                    android:textColor="@color/text"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15sp"
-                    android:text="Email" />
+
 
                 <EditText
                     android:id="@+id/email"
@@ -128,9 +136,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints="emailAddress"
-                    android:hint="someone@exmaple.com"
-                    
-                    android:textSize="20dp"
+                    android:textColor="@color/text"
+                    android:textColorHint="@color/editTextHint"
+                    android:hint="Email"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/editText_font_size"
 
                     />
 
@@ -148,19 +158,17 @@
                         android:layout_marginRight="20sp"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Address" />
+
 
                         <EditText
                             android:id="@+id/address"
                             android:minHeight="48dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="187 BerckVille St"
-                            
-                            android:textSize="20dp" />
+                            android:hint="Address"
+                            android:textColor="@color/text"
+                            android:textColorHint="@color/editTextHint"
+                            android:textSize="@dimen/editText_font_size" />
 
                     </LinearLayout>
 
@@ -170,10 +178,7 @@
                         android:layout_weight="1"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Postal Code" />
+
 
                         <EditText
                             android:minHeight="48dp"
@@ -181,27 +186,25 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="N2J 3C1"
-                            
-                            android:textSize="20dp" />
+                            android:textColor="@color/text"
+                            android:textColorHint="@color/editTextHint"
+                            android:textSize="@dimen/editText_font_size" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10sp"
-                    android:text="Special Instructions" />
+
 
                 <EditText
                     android:minHeight="48dp"
                     android:id="@+id/deliveryInstructions"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                   
-                    android:hint="Please meet at the front door"
-                    android:textSize="20dp" />
+                    android:textColorHint="@color/editTextHint"
+                    android:hint="Special Instructions"
+                    android:textColor="@color/text"
+                    android:textSize="@dimen/editText_font_size" />
 
 
             </LinearLayout>
@@ -217,6 +220,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:text="Payment"
+                    android:textColor="@color/text"
                     android:textSize="25dp"
                     android:textStyle="bold" />
 
@@ -224,21 +228,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15sp"
+                    android:textColor="@color/white"
                     android:text="Name on Card" />
 
                 <EditText
                     android:id="@+id/cardOwner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                
+                    android:textColorHint="@color/editTextHint"
                     android:hint="John Doe"
                     android:minHeight="48dp"
-                    android:textSize="20dp" />
+                    android:textColor="@color/text"
+                    android:textSize="@dimen/editText_font_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10sp"
+                    android:textColor="@color/white"
                     android:text="Card Number" />
 
                 <LinearLayout
@@ -258,6 +265,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="0000 0000 0000 0000 "
+                            android:textColor="@color/text"
+                            android:textColorHint="@color/editTextHint"
+                            android:textSize="@dimen/editText_font_size"
                             android:maxLength="19"
                             android:inputType="number"
                             android:minHeight="48dp"
@@ -297,6 +307,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/white"
                             android:text="Expiry Date" />
 
                         <EditText
@@ -304,8 +315,11 @@
                             android:minHeight="48dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColorHint="@color/editTextHint"
+                            android:textColor="@color/text"
                             android:hint="04/28"
                             android:inputType="number"
+                            android:textSize="@dimen/editText_font_size"
                             />
 
                     </LinearLayout>
@@ -319,6 +333,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/white"
                             android:text="CVV" />
 
                         <EditText
@@ -326,9 +341,12 @@
                             android:minHeight="48dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColorHint="@color/editTextHint"
+                            android:textColor="@color/text"
                             android:hint="000"
                             android:inputType="numberPassword"
                             android:maxLength="3"
+                            android:textSize="@dimen/editText_font_size"
                             />
 
                     </LinearLayout>
@@ -345,6 +363,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10sp"
                 android:text="Place Order"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/white"
                 android:textStyle="bold" />
 
         </LinearLayout>

@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="text">#FFFFFFFF</color>
     <color name="themeBackground">#172642</color>
+    <color name="editTextHint">#81FFFFFF</color>
 </resources>

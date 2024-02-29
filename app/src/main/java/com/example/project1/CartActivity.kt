@@ -19,6 +19,8 @@ class CartActivity : AppCompatActivity() {
     private var adapter: CartAdapter? = null
     private lateinit var auth: FirebaseAuth
 
+    var btnCheckOut: Button? = null;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
@@ -26,6 +28,8 @@ class CartActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         val currentUser: FirebaseUser? = auth.currentUser
         val currentUserUid = currentUser?.uid
+
+        btnCheckOut = findViewById(R.id.btnCheckOut);
 
         if (currentUserUid != null) {
 
@@ -57,6 +61,12 @@ class CartActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+
+        btnCheckOut?.setOnClickListener(View.OnClickListener {
+            intent = Intent(applicationContext, CheckOutActivity::class.java)
+            startActivity(intent)
+        })
 
     }
 
