@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import com.example.project1.dataClasses.Cart
 import com.example.project1.dataClasses.Product
@@ -13,6 +15,8 @@ import com.example.project1.util.ImageSliderAdapter
 import com.google.firebase.database.FirebaseDatabase
 
 class DescriptionActivity : AppCompatActivity() {
+
+    private lateinit var viewPager: ViewPager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_description)
@@ -22,10 +26,12 @@ class DescriptionActivity : AppCompatActivity() {
 
         // For View Pager Slider
         val imageUrls = product.detailImg
-        val viewPager: ViewPager = findViewById(R.id.viewPager)
+         viewPager = findViewById(R.id.viewPager)
+        val dotsLayout = findViewById<LinearLayout>(R.id.dotsLayout)
         if (imageUrls.isNotEmpty()) {
             val adapter = ImageSliderAdapter(supportFragmentManager, imageUrls)
             viewPager.adapter = adapter
+            addDotsIndicator(dotsLayout, imageUrls.size)
         }
 
         // Update with retrieved watch details
@@ -79,5 +85,43 @@ class DescriptionActivity : AppCompatActivity() {
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun addDotsIndicator(dotsLayout: LinearLayout, size: Int) {
+        val dots = arrayOfNulls<ImageView>(size)
+
+        for (i in 0 until size) {
+            dots[i] = ImageView(this)
+            dots[i]?.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.non_active_dot))
+
+            val params = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            params.setMargins(8, 0, 8, 0)
+            dotsLayout.addView(dots[i], params)
+        }
+
+        dots[0]?.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.active_dot))
+
+        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+
+            }
+
+            override fun onPageSelected(position: Int) {
+                for (i in dots.indices) {
+                    dots[i]?.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            applicationContext,
+                            if (i == position) R.drawable.active_dot else R.drawable.non_active_dot
+                        )
+                    )
+                }
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+        })
     }
 }
