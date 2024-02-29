@@ -6,12 +6,16 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.project1.dataClasses.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
 
 class RegistrationActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var database: FirebaseDatabase
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,8 +73,24 @@ class RegistrationActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign up success
                     val user: FirebaseUser? = auth.currentUser
-                    showToast("Registration successful! Please login to continue")
-                    navigateToLoginActivity()
+
+                    // Create a User object
+                    val userDetails = User(
+                        uid = user?.uid ?: "",
+                        email = email,
+                        // Add more fields as needed
+                    )
+
+                    // Save user details in Realtime Database
+                    val userRef = FirebaseDatabase.getInstance().reference.child("users").child(user?.uid ?: "")
+                    userRef.setValue(userDetails)
+                        .addOnSuccessListener {
+                            showToast("Registration successful! Please login to continue")
+                            navigateToLoginActivity()
+                        }
+                        .addOnFailureListener { e ->
+                            showToast("Registration failed. ${e.message}")
+                        }
                 } else {
                     // Failed Message if Signup fails
                     showToast("Registration failed. ${task.exception?.message}")

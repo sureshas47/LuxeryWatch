@@ -10,6 +10,5 @@ data class Cart(
     var powerReserver: String = "",
     var waterResistance: String = ""
 ) {
-    // No-argument constructor required by Firebase
     constructor() : this("", 0.0, "", "", "", "", "", "")
 }

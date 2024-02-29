@@ -1,7 +1,9 @@
 package com.example.project1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -11,15 +13,22 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import com.example.project1.dataClasses.Cart
 import com.example.project1.dataClasses.Product
+import com.example.project1.dataClasses.User
 import com.example.project1.util.ImageSliderAdapter
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
 
 class DescriptionActivity : AppCompatActivity() {
 
     private lateinit var viewPager: ViewPager
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_description)
+
+        auth = FirebaseAuth.getInstance()
 
         // Retrieve Product object from the intent
         val product = intent.getSerializableExtra("product") as Product
@@ -53,35 +62,76 @@ class DescriptionActivity : AppCompatActivity() {
 //        val storRef: StorageReference = FirebaseStorage.getInstance().getReferenceFromUrl(product.detailImg)
 //        Glide.with(this).load(storRef).into(productImageView)
 
-        val addToCartButton: ImageView = findViewById(R.id.addToCart)
+        // Go To Cart Page
+        val goToCartIcon: ImageView = findViewById(R.id.addToCart)
+        goToCartIcon.setOnClickListener {
+            val intent = Intent(this, CartActivity::class.java)
+            startActivity(intent)        }
 
+        //Add Item to Cart
+        val addToCartButton: Button = findViewById(R.id.addToCartBtn)
         addToCartButton.setOnClickListener {
-            // Pass product object to add to cart function
-            addToCart(product)
+            addToCartAndSaveToFirebase(product)
         }
     }
 
-    private fun addToCart(product: Product) {
-        val cartItem = Cart(
-            name = product.name,
-            price = product.price,
-            braceletMaterial = product.braceletMaterial,
-            cardImg = product.cardImg,
-            caseSize = product.caseSize,
-            dialColor = product.dialColor,
-            powerReserver = product.powerReserver,
-            waterResistance = product.waterResistance
-        )
-        // Save cart data in firebase
-        saveToFirebase(cartItem)
-        // Show Success Message After Saving in Firebase
-        showToast("Item added to cart successfully")
+    private fun addToCartAndSaveToFirebase(product: Product) {
+        try {
+            val cartItem = Cart(
+                name = product.name,
+                price = product.price,
+                braceletMaterial = product.braceletMaterial,
+                cardImg = product.cardImg,
+                caseSize = product.caseSize,
+                dialColor = product.dialColor,
+                powerReserver = product.powerReserver,
+                waterResistance = product.waterResistance
+            )
+
+            // Get the current user
+            val user: FirebaseUser? = auth.currentUser
+            val currentUserUid = user?.uid
+
+            // Check if the user is logged in
+            if (currentUserUid != null) {
+                // Retrieve user details from database
+                val userRef = FirebaseDatabase.getInstance().reference.child("users").child(currentUserUid)
+                userRef.get().addOnSuccessListener { dataSnapshot ->
+                    val currentUser = dataSnapshot.getValue(User::class.java)
+
+                    // Check if the user object is not null
+                    if (currentUser != null) {
+                        // Add the cart item to the user's cart
+                        currentUser.cart.add(cartItem)
+
+                        // Update the user's cart in the database
+                        userRef.setValue(currentUser)
+                            .addOnSuccessListener {
+                                // Redirect to CartActivity
+                                val intent = Intent(this, CartActivity::class.java)
+                                startActivity(intent)
+
+                                // Show Success Message After Saving Firebase
+                                showToast("Item added to cart successfully")
+                            }
+                            .addOnFailureListener { e ->
+                                showToast("Failed to update user's cart. ${e.message}")
+                            }
+                    } else {
+                        showToast("User object is null")
+                    }
+                }.addOnFailureListener { e ->
+                    showToast("Failed to retrieve user details. ${e.message}")
+                }
+            } else {
+                showToast("User not logged in")
+            }
+        } catch (e: Exception) {
+            showToast("Error: ${e.message}")
+            e.printStackTrace()
+        }
     }
 
-    private fun saveToFirebase(cartItem: Cart) {
-        val cartRef = FirebaseDatabase.getInstance().reference.child("userCart").push()
-        cartRef.setValue(cartItem)
-    }
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

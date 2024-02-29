@@ -19,6 +19,13 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+        // Check if user already logged in
+        val currentUser = auth.currentUser
+//        if (currentUser != null) {
+//            navigateToProductActivity()
+//            return
+//        }
+
         // Skip Login and Go to Product
         val skipButton: Button = findViewById(R.id.SkipBtn)
         skipButton.setOnClickListener {
