@@ -3,8 +3,11 @@ package com.example.project1
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.SearchView
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.project1.dataClasses.Product
@@ -21,9 +24,13 @@ import com.google.firebase.database.ValueEventListener
 class ProductActivity : AppCompatActivity() {
     private var adapter: ProductAdapter? = null;
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product)
+
+
+
 
         val cartButton: ImageView = findViewById(R.id.addToCart)
         cartButton.setOnClickListener {
@@ -72,6 +79,8 @@ class ProductActivity : AppCompatActivity() {
             }
         })
     }
+
+
 
 
 
