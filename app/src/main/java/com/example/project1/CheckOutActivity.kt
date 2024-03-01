@@ -1,8 +1,10 @@
 package com.example.project1
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -55,6 +57,13 @@ class CheckOutActivity : AppCompatActivity() {
         cardNumber?.addTextChangedListener(CreditCardFormattingTextWatcher(cardNumber, cardType))
 
         orderSummary()
+
+        val backBtn : ImageView = findViewById(R.id.backBtn);
+
+        backBtn.setOnClickListener(View.OnClickListener {
+            val intent = Intent(this, CartActivity::class.java)
+            startActivity(intent)
+        })
     }
 
     fun orderSummary() {

@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="0dp"
-    android:padding="0dp"
-    android:background="@color/themeBackground">
+    android:background="@color/themeBackground"
+    android:padding="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,14 +12,15 @@
         android:orientation="horizontal"
         android:paddingHorizontal="0dp"
         android:weightSum="1">
+
         <ImageView
             android:id="@+id/logOutBtn"
             android:layout_width="0dp"
-            android:padding="5dp"
-            android:rotation="180"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="0.1"
+            android:padding="5dp"
+            android:rotation="180"
             android:src="@drawable/logout_24px" />
 
 
@@ -35,14 +36,13 @@
             android:textStyle="bold" />
 
         <ImageView
-        android:id="@+id/addToCart"
-        android:layout_width="0dp"
+            android:id="@+id/addToCart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.1"
             android:padding="5dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_weight="0.1"
-        android:src="@drawable/shopping_bag_24px" />
-
+            android:src="@drawable/shopping_bag_24px" />
 
 
     </LinearLayout>

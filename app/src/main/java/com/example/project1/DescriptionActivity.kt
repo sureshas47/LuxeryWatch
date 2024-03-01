@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -51,6 +52,15 @@ class DescriptionActivity : AppCompatActivity() {
         val priceTextView: TextView = findViewById(R.id.priceTv)
         val watchDescriptionTextView: TextView = findViewById(R.id.watchDescription)
 //        val productImageView : ImageView = findViewById(R.id.productImageView)
+
+        val backBtn : ImageView = findViewById(R.id.backBtn);
+
+        backBtn.setOnClickListener(View.OnClickListener {
+            val intent = Intent(this, ProductActivity::class.java)
+            startActivity(intent)
+        })
+
+
 
         watchNameTextView.text = product.name
         caseSizeTextView.text = product.caseSize

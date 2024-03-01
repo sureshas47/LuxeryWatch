@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,6 +31,13 @@ class CartActivity : AppCompatActivity() {
         val currentUserUid = currentUser?.uid
 
         btnCheckOut = findViewById(R.id.btnCheckOut);
+
+        val backBtn : ImageView = findViewById(R.id.backBtn);
+
+        backBtn.setOnClickListener(View.OnClickListener {
+            val intent = Intent(this, ProductActivity::class.java)
+            startActivity(intent)
+        })
 
         if (currentUserUid != null) {
 
