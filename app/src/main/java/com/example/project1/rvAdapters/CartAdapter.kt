@@ -13,6 +13,10 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 class CartAdapter(options: FirebaseRecyclerOptions<Cart>) :
     FirebaseRecyclerAdapter<Cart, CartAdapter.MyViewHolder>(options) {
+
+    // Define a listener for data changes
+    private var onDataChangedListener: OnDataChangedListener? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return MyViewHolder(inflater, parent)
@@ -36,8 +40,6 @@ class CartAdapter(options: FirebaseRecyclerOptions<Cart>) :
 
         }
 
-
-
     }
 
     inner class MyViewHolder(inflater: LayoutInflater, parent: ViewGroup):
@@ -47,5 +49,21 @@ class CartAdapter(options: FirebaseRecyclerOptions<Cart>) :
             val txtPrice: TextView = itemView.findViewById(R.id.txtPrice)
             val imgCard: ImageView = itemView.findViewById(R.id.imgPhoto)
        }
+
+    // Method to set the data changed listener
+    fun setOnDataChangedListener(listener: OnDataChangedListener) {
+        onDataChangedListener = listener
+    }
+
+    // Interface for the data changed listener
+    interface OnDataChangedListener {
+        fun onDataChanged()
+    }
+
+    // Override the onDataChanged method to notify the listener
+    override fun onDataChanged() {
+        super.onDataChanged()
+        onDataChangedListener?.onDataChanged()
+    }
 
 }
