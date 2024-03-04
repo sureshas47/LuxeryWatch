@@ -81,26 +81,20 @@
                 android:layout_gravity="center"
                 android:background="#676767" />
 
-            <LinearLayout
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/googleSignIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="60dp"
                 android:layout_marginVertical="10dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:src="@drawable/circle" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:src="@drawable/circle" />
-
-            </LinearLayout>
+                android:backgroundTint="@color/white"
+                android:text="Sign in with google"
+                android:textColor="@color/black"
+                app:icon="@drawable/google"
+                app:iconGravity="start"
+                app:iconPadding="4dp"
+                app:iconSize="16dp"
+                app:iconTint="@null" />
 
         </LinearLayout>
 

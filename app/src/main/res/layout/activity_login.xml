@@ -16,93 +16,81 @@
         android:layout_weight="0.7"
         android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Unlock a World of Timeless Luxury."
-        android:textSize="35dp"
-        android:textColor="@color/text"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Log in Now"
-        android:textStyle="bold"
-        android:textSize="35dp"
-        android:textColor="@color/text"
-        />
-
-
-    <EditText
-        android:id="@+id/emailTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:shadowRadius="10"
-        android:inputType="textEmailAddress"
-        android:background="@color/text"
-        android:paddingVertical="8dp"
-        android:paddingHorizontal="15dp"
-        android:layout_marginTop="30dp"
-        />
-
-    <EditText
-        android:id="@+id/passwordTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:shadowRadius="10"
-        android:inputType="textPassword"
-        android:background="@color/text"
-        android:paddingVertical="8dp"
-        android:paddingHorizontal="15dp"
-        android:layout_marginTop="30dp"
-        />
-
-    <Button
-        android:id="@+id/loginBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="Login"
-        android:textSize="15dp"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/text"
-        android:paddingVertical="8dp"
-        android:layout_marginHorizontal="60dp"
-        android:layout_marginVertical="30dp"
-        />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-       android:layout_gravity="center"
-        android:background="#676767" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_marginVertical="10dp"
-        >
-        <ImageView
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/circle"
-            android:layout_marginHorizontal="10dp"
-            />
+            android:layout_marginTop="50dp"
+            android:text="Unlock a World of Timeless Luxury."
+            android:textColor="@color/text"
+            android:textSize="35dp" />
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/circle"
-            android:layout_marginHorizontal="10dp"
-            />
+            android:text="Log in Now"
+            android:textColor="@color/text"
+            android:textSize="35dp"
+            android:textStyle="bold" />
 
-    </LinearLayout>
+
+        <EditText
+            android:id="@+id/emailTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@color/text"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="8dp"
+            android:shadowRadius="10" />
+
+        <EditText
+            android:id="@+id/passwordTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@color/text"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="8dp"
+            android:shadowRadius="10" />
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginVertical="30dp"
+            android:backgroundTint="@color/text"
+            android:paddingVertical="8dp"
+            android:text="Login"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:background="#676767" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/googleSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginVertical="10dp"
+            android:backgroundTint="@color/white"
+            android:text="Sign in with google"
+            android:textColor="@color/black"
+            app:icon="@drawable/google"
+            app:iconGravity="start"
+            app:iconPadding="4dp"
+            app:iconSize="16dp"
+            app:iconTint="@null" />
+
 
     </LinearLayout>
 
@@ -110,37 +98,36 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
 
-    <Button
-        android:id="@+id/signupBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="Sign Up"
-        android:textSize="15dp"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/text"
-        android:paddingVertical="8dp"
-        android:layout_marginHorizontal="60dp"
+        <Button
+            android:id="@+id/signupBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="60dp"
+            android:backgroundTint="@color/text"
+            android:paddingVertical="8dp"
+            android:text="Sign Up"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
 
-        />
+            />
 
-    <Button
-        android:id="@+id/SkipBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="Skip for now"
-        android:textSize="15dp"
-        android:textColor="@color/text"
+        <Button
+            android:id="@+id/SkipBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="60dp"
+            android:paddingVertical="8dp"
+            android:text="Skip for now"
+            android:textColor="@color/text"
 
-        android:paddingVertical="8dp"
-        android:layout_marginHorizontal="60dp"
+            android:textSize="15dp"
+            android:textStyle="bold"
 
-        />
+            />
     </LinearLayout>
 
 

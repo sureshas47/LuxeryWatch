@@ -1,6 +1,7 @@
 package com.example.project1
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -15,6 +16,7 @@ import com.example.project1.rvAdapters.ProductAdapter
 import com.example.project1.util.CartManager
 import com.example.project1.util.WrapContentGridLayoutManager
 import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -24,13 +26,13 @@ import com.google.firebase.database.ValueEventListener
 class ProductActivity : AppCompatActivity() {
     private var adapter: ProductAdapter? = null;
 
-
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product)
 
 
-
+        auth = FirebaseAuth.getInstance()
 
         val cartButton: ImageView = findViewById(R.id.addToCart)
         cartButton.setOnClickListener {
@@ -53,6 +55,13 @@ class ProductActivity : AppCompatActivity() {
 
         val rolexReference = FirebaseDatabase.getInstance().reference.child("productList/rolex")
 
+
+        val signOut: ImageView = findViewById(R.id.logOutBtn);
+        signOut.setOnClickListener({
+            auth.signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        })
 
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
