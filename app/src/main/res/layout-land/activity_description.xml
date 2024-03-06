@@ -79,6 +79,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginVertical="10dp"
                 android:orientation="horizontal"
+
                 android:layout_weight="0.5"
                 android:weightSum="3">
 
@@ -98,9 +99,9 @@
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:paddingVertical="5dp"
-                        android:src="@drawable/circle" />
+                        android:src="@drawable/case_size" />
 
                     <TextView
                         android:id="@+id/caseSizeTv"
@@ -128,9 +129,9 @@
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:paddingVertical="5dp"
-                        android:src="@drawable/circle" />
+                        android:src="@drawable/pow_reserve" />
 
                     <TextView
                         android:id="@+id/powerReserveTv"
@@ -158,9 +159,9 @@
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:paddingVertical="5dp"
-                        android:src="@drawable/circle" />
+                        android:src="@drawable/waterproof" />
 
                     <TextView
                         android:id="@+id/waterResistanceTv"
