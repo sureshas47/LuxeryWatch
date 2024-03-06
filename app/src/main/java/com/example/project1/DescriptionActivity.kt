@@ -18,6 +18,7 @@ import com.example.project1.dataClasses.User
 import com.example.project1.util.ImageSliderAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.database.FirebaseDatabase
 
 class DescriptionActivity : AppCompatActivity() {
@@ -99,8 +100,10 @@ class DescriptionActivity : AppCompatActivity() {
             )
 
             // Get the current user
+
             val user: FirebaseUser? = auth.currentUser
-            val currentUserUid = user?.uid
+
+            val currentUserUid = user?.uid.toString()
 
             // Check if the user is logged in
             if (currentUserUid != null) {

@@ -96,6 +96,8 @@ class RegistrationActivity : AppCompatActivity() {
                     showToast("Registration failed. ${task.exception?.message}")
                 }
             }
+
+
     }
 
     private fun showToast(message: String) {

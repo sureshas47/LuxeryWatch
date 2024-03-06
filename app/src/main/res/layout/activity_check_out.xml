@@ -9,7 +9,7 @@
 
     tools:context=".CheckOutActivity">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar_2"/>
 
     <ScrollView
         android:layout_width="match_parent"

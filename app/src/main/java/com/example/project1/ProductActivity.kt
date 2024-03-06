@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.SearchView
@@ -33,6 +34,8 @@ class ProductActivity : AppCompatActivity() {
 
 
         auth = FirebaseAuth.getInstance()
+
+        Log.i("Current user", auth.currentUser?.uid.toString())
 
         val cartButton: ImageView = findViewById(R.id.addToCart)
         cartButton.setOnClickListener {

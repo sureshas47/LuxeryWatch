@@ -9,7 +9,7 @@
     android:weightSum="1"
     tools:context=".CartActivity">
 
-    <include layout="@layout/toolbar" />
+    <include layout="@layout/toolbar_2" />
 
     <TextView
         android:layout_width="match_parent"

@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.project1.dataClasses.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -18,6 +19,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.FirebaseDatabase
 
 
 class LoginActivity : AppCompatActivity() {
@@ -114,7 +116,27 @@ class LoginActivity : AppCompatActivity() {
             if (it.isSuccessful) {
                 Log.i("Google log in", "Sucess")
                 showToast("Login successful!")
-                navigateToProductActivity()
+
+                val user: FirebaseUser? = auth.currentUser
+
+                // Create a User object
+                val userDetails = User(
+                    uid = user?.uid ?: "",
+                    email = user?.email.toString(),
+                    // Add more fields as needed
+                )
+
+                val userRef =
+                    FirebaseDatabase.getInstance().reference.child("users").child(user?.uid ?: "")
+                userRef.setValue(userDetails)
+                    .addOnSuccessListener {
+                        showToast("Log in Successful")
+                        navigateToProductActivity()
+                    }
+                    .addOnFailureListener { e ->
+                        showToast("Log in failed. ${e.message}")
+                    }
+
             } else {
                 Log.i("Google log in", "fail")
                 Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()

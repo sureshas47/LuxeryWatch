@@ -56,9 +56,9 @@ class CheckOutActivity : AppCompatActivity() {
 
         placeOrder = findViewById(R.id.placeOrder)
 
-        cardNumber?.addTextChangedListener(CreditCardFormattingTextWatcher(cardNumber, cardType))
+        cardNumber?.addTextChangedListener(CreditCardFormattingTextWatcher(cardNumber!!, cardType!!))
 
-        orderSummary()
+//        orderSummary()
 
         val backBtn : ImageView = findViewById(R.id.backBtn);
 
