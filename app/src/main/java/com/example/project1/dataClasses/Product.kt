@@ -12,5 +12,6 @@ data class Product(
     val powerReserver: String = "",
     val price: Double = 0.0,
     val waterResistance: String = "",
-    val description: String = ""
+    val description: String = "",
+    val tag: String = ""
 ) : Serializable

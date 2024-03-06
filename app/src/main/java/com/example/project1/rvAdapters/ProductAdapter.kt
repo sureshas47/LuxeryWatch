@@ -28,9 +28,9 @@ class ProductAdapter(options: FirebaseRecyclerOptions<Product>, private val cont
     override fun onBindViewHolder(holder: MyViewHolder, position: Int, model: Product) {
         val storRef: StorageReference = FirebaseStorage.getInstance().getReferenceFromUrl(model.cardImg)
         Glide.with(holder.productImageView.context).load(storRef).into(holder.productImageView)
-        Log.i("cardImg", model.cardImg.toString());
+
         holder.modelNameTextView.text = model.name
-        holder.seriesTextView.text = model.braceletMaterial
+        holder.seriesTextView.text = model.tag
 //        holder.productPriceTextView.text = "${model.price} $"
 
         // OnClickListener for the entire item

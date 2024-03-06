@@ -58,7 +58,7 @@ class CheckOutActivity : AppCompatActivity() {
 
         cardNumber?.addTextChangedListener(CreditCardFormattingTextWatcher(cardNumber!!, cardType!!))
 
-//        orderSummary()
+        orderSummary()
 
         val backBtn : ImageView = findViewById(R.id.backBtn);
 
@@ -69,11 +69,11 @@ class CheckOutActivity : AppCompatActivity() {
     }
 
     fun orderSummary() {
-//        val intent = intent
-//        subtotal!!.text = intent.getStringExtra("total")
-//        deliveryFee!!.text = "$10.00"
-//        val totalCost = java.lang.Double.valueOf(intent.getStringExtra("total")) + 10
-//        total!!.text = totalCost.toString()
+        val intent = intent
+        subtotal?.text = intent.getStringExtra("subTotal")
+        deliveryFee?.text = "$10.00"
+        val totalCost = (intent.getStringExtra("total"))?.toDouble()?.plus(10)
+        total?.text = totalCost.toString()
     }
 
     private fun validateFields(): Boolean {

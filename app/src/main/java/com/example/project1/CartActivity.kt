@@ -27,6 +27,10 @@ class CartActivity : AppCompatActivity() {
 
     var btnCheckOut: Button? = null;
 
+    lateinit var textViewSubTotal: TextView
+    lateinit var textViewTaxes: TextView
+    lateinit var textViewTotal: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
@@ -36,6 +40,8 @@ class CartActivity : AppCompatActivity() {
         val currentUserUid = currentUser?.uid
 
         btnCheckOut = findViewById(R.id.btnCheckOut);
+
+
 
         if (currentUserUid != null) {
 
@@ -87,10 +93,16 @@ class CartActivity : AppCompatActivity() {
         })
 
 
+         textViewSubTotal = findViewById(R.id.subTotalTv)
+         textViewTaxes = findViewById(R.id.taxesTv)
+         textViewTotal = findViewById(R.id.totalTv)
+
         btnCheckOut?.setOnClickListener(View.OnClickListener {
             intent = Intent(applicationContext, CheckOutActivity::class.java)
             // Pass subtotal as an extra in the intent
-            intent.putExtra("total", subtotal)
+            intent.putExtra("subTotal", textViewSubTotal.text)
+            intent.putExtra("taxes", textViewTaxes.text)
+            intent.putExtra("total", textViewTotal.text)
             startActivity(intent)
         })
 
@@ -105,9 +117,7 @@ class CartActivity : AppCompatActivity() {
         taxes = subtotal * 0.13 // 13% tax
         total = subtotal + taxes
 
-        val textViewSubTotal: TextView = findViewById(R.id.subTotalTv)
-        val textViewTaxes: TextView = findViewById(R.id.taxesTv)
-        val textViewTotal: TextView = findViewById(R.id.totalTv)
+
 
         textViewSubTotal.text = subtotal.toString()
         textViewTaxes.text = taxes.toString()

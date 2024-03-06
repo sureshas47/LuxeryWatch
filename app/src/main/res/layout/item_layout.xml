@@ -48,10 +48,11 @@
             android:id="@+id/modelNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:letterSpacing="0.07"
             android:textStyle="bold"
             android:text="Rolex Submariner"
+            android:textAllCaps="true"
             android:layout_marginVertical="10dp"
             android:textColor="@color/text"
             android:textAlignment="center"/>
