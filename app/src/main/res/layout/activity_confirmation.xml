@@ -1,27 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/themeBackground"
+    android:orientation="vertical"
     tools:context=".ConfirmationActivity">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center">
+
+
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="0dp"
+        android:layout_width="371dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="251dp"
-        android:layout_marginEnd="20dp"
-        android:textColor="@color/text"
         android:text="Thank You for Shopping with us. Your Order has been placed."
         android:textAlignment="center"
+        android:textColor="@color/text"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="251dp" />
+
+    <Button
+        android:id="@+id/backToProducts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back to Products"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:layout_marginVertical="10dp"
+        tools:layout_editor_absoluteX="121dp"
+        tools:layout_editor_absoluteY="355dp" />
+
+    </LinearLayout>
+</LinearLayout>

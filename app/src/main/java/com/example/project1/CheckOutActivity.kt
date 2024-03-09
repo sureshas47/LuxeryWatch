@@ -66,6 +66,13 @@ class CheckOutActivity : AppCompatActivity() {
             val intent = Intent(this, CartActivity::class.java)
             startActivity(intent)
         })
+
+        placeOrder?.setOnClickListener(View.OnClickListener{
+            if(validateFields()){
+                val intent = Intent(this, ConfirmationActivity::class.java)
+                startActivity(intent)
+            }
+        })
     }
 
     fun orderSummary() {
@@ -80,40 +87,40 @@ class CheckOutActivity : AppCompatActivity() {
         var isValid = true
         isValid = isValid and validateField(
             email!!, "Enter a valid email address", Patterns.EMAIL_ADDRESS.matcher(
-                email!!.text.toString().trim { it <= ' ' }).matches()
+                email?.text.toString().trim { it <= ' ' }).matches()
         )
         isValid = isValid and validateField(
             address!!, "Address cannot be empty", !TextUtils.isEmpty(
-                address!!.text.toString().trim { it <= ' ' })
+                address?.text.toString().trim { it <= ' ' })
         )
         isValid = isValid and validateField(
             postalCode!!,
             "Enter a valid postal code",
             Pattern.matches(
                 "^[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]$",
-                postalCode!!.text.toString().trim { it <= ' ' })
+                postalCode?.text.toString().trim { it <= ' ' })
         )
         isValid = isValid and validateField(
             deliveryInstructions!!, "Delivery instructions cannot be empty", !TextUtils.isEmpty(
-                deliveryInstructions!!.text.toString().trim { it <= ' ' })
+                deliveryInstructions?.text.toString().trim { it <= ' ' })
         )
         isValid = isValid and validateField(
             cardHolderName!!, "Cardholder name cannot be empty", !TextUtils.isEmpty(
-                cardHolderName!!.text.toString().trim { it <= ' ' })
+                cardHolderName?.text.toString().trim { it <= ' ' })
         )
         isValid = isValid and validateField(
             cardNumber!!,
             "Enter a valid card number",
-            cardNumber!!.text.toString().trim { it <= ' ' }.length >= 16
+            cardNumber?.text.toString().trim { it <= ' ' }.length >= 16
         )
         isValid = isValid and validateField(
             cardExpiry!!, "Enter a valid expiry date", !TextUtils.isEmpty(
-                cardExpiry!!.text.toString().trim { it <= ' ' })
+                cardExpiry?.text.toString().trim { it <= ' ' })
         )
         isValid = isValid and validateField(
             cardCVV!!,
             "Enter a valid CVV",
-            cardCVV!!.text.toString().trim { it <= ' ' }.length == 3
+            cardCVV?.text.toString().trim { it <= ' ' }.length == 3
         )
 
         // Add more validation for other fields as needed
