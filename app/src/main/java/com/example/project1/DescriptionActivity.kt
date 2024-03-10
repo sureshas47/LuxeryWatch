@@ -114,8 +114,24 @@ class DescriptionActivity : AppCompatActivity() {
 
                     // Check if the user object is not null
                     if (currentUser != null) {
-                        // Add the cart item to the user's cart
-                        currentUser.cart.add(cartItem)
+                        var isProductFoundInCart=false
+                        // Check if product already available in cart
+                        for (cartItem in currentUser.cart) {
+                            if (cartItem.name == product.name) {
+                                // Update the quantity of the prior product added in cart
+                                cartItem.quantity += 1
+                                isProductFoundInCart = true
+                                break
+                            }
+                        }
+
+                        // If the product is not found, add it to the cart
+                        if (!isProductFoundInCart) {
+                            // Add the cart item to the user's cart
+                            currentUser.cart.add(cartItem)
+                        }
+
+
 
                         // Update the user's cart in the database
                         userRef.setValue(currentUser)

@@ -61,9 +61,9 @@ class CartActivity : AppCompatActivity() {
                 startActivity(intent)
             })
 
-            adapter = CartAdapter(options)
 
             val rView: RecyclerView = findViewById(R.id.rView)
+            adapter = CartAdapter(rView, options)
             rView?.layoutManager = LinearLayoutManager(this)
             rView?.adapter = adapter
 
@@ -112,7 +112,7 @@ class CartActivity : AppCompatActivity() {
     private fun calculateTotals() {
         subtotal = 0.0
         adapter?.snapshots?.forEach { cartItem ->
-            subtotal += cartItem.price
+            subtotal += cartItem.price*cartItem.quantity
         }
         taxes = subtotal * 0.13 // 13% tax
         total = subtotal + taxes
