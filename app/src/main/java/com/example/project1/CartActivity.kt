@@ -42,15 +42,12 @@ class CartActivity : AppCompatActivity() {
         btnCheckOut = findViewById(R.id.btnCheckOut);
 
 
-
         if (currentUserUid != null) {
-
             val query =
                 FirebaseDatabase.getInstance().reference.child("users").child(currentUserUid)
                     .child("cart")
             val options =
                 FirebaseRecyclerOptions.Builder<Cart>().setQuery(query, Cart::class.java).build()
-
 //            System.out.println(query)
 //            System.out.println("options")
 
@@ -63,7 +60,7 @@ class CartActivity : AppCompatActivity() {
 
 
             val rView: RecyclerView = findViewById(R.id.rView)
-            adapter = CartAdapter(rView, options)
+            adapter = CartAdapter(rView, options) // pass rView in CardAdapter
             rView?.layoutManager = LinearLayoutManager(this)
             rView?.adapter = adapter
 
@@ -118,7 +115,7 @@ class CartActivity : AppCompatActivity() {
         total = subtotal + taxes
 
 
-
+        // Displaying on view
         textViewSubTotal.text = subtotal.toString()
         textViewTaxes.text = taxes.toString()
         textViewTotal.text = total.toString()

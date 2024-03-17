@@ -74,7 +74,7 @@ class CartAdapter(private val recyclerView: RecyclerView,
                 if(position!=RecyclerView.NO_POSITION){
                     val cartItem = getItem(position)
                     cartItem.quantity++
-                     updateCartItemQuantity(cartItem)
+                     updateCartItemQuantity(cartItem) // call updateCartItem
                 }
             }
 
@@ -84,10 +84,12 @@ class CartAdapter(private val recyclerView: RecyclerView,
                      val cartItem=getItem(position)
                      if(cartItem.quantity > 1){
                          cartItem.quantity--
-                          updateCartItemQuantity(cartItem)
+                          updateCartItemQuantity(cartItem) // call updateCartItem
                      }
                  }
              }
+
+
 
         }
 

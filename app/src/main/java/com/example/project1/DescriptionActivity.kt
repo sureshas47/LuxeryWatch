@@ -123,6 +123,7 @@ class DescriptionActivity : AppCompatActivity() {
                                 isProductFoundInCart = true
                                 break
                             }
+
                         }
 
                         // If the product is not found, add it to the cart
